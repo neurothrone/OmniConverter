@@ -1,6 +1,7 @@
 using System;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
+using OmniConverter.Core;
 
 namespace OmniConverter.Avalonia.Client.Views;
 
@@ -17,7 +18,7 @@ public partial class MainWindow : Window
 
         if (double.TryParse(Celsius.Text, out var temperatureC))
         {
-            var temperatureF = temperatureC * (9d / 5d) + 32;
+            var temperatureF = TemperatureConverter.CelsiusToFahrenheit(temperatureC);
             Fahrenheit.Text = temperatureF.ToString("0.0");
         }
         else
